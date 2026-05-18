@@ -1,0 +1,9 @@
+{
+  "name": "WordWiz",
+  "short_name": "WordWiz",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#667eea",
+  "description": "11+ vocabulary builder for children"
+}

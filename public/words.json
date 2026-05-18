@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "word": "Benevolent",
+    "definition": "Kind and generous; wishing good to others",
+    "example": "The benevolent teacher always helped struggling students.",
+    "difficulty": "medium",
+    "category": "character traits",
+    "synonyms": ["kind", "generous", "charitable", "compassionate"],
+    "antonyms": ["cruel", "mean", "selfish", "malevolent"]
+  },
+  {
+    "id": 2,
+    "word": "Adversity",
+    "definition": "A difficult or unpleasant situation",
+    "example": "She showed great courage in the face of adversity.",
+    "difficulty": "hard",
+    "category": "life situations",
+    "synonyms": ["hardship", "misfortune", "difficulty", "struggle"],
+    "antonyms": ["fortune", "ease", "prosperity", "luck"]
+  },
+  {
+    "id": 3,
+    "word": "Eloquent",
+    "definition": "Fluent and persuasive in speaking or writing",
+    "example": "The eloquent speaker held the audience's attention.",
+    "difficulty": "hard",
+    "category": "communication",
+    "synonyms": ["articulate", "fluent", "expressive", "persuasive"],
+    "antonyms": ["inarticulate", "mumbling", "hesitant"]
+  },
+  {
+    "id": 4,
+    "word": "Frugal",
+    "definition": "Careful with money; not wasteful",
+    "example": "Being frugal, she saved half her pocket money each week.",
+    "difficulty": "medium",
+    "category": "character traits",
+    "synonyms": ["thrifty", "economical", "careful", "sparing"],
+    "antonyms": ["wasteful", "extravagant", "lavish", "spendthrift"]
+  },
+  {
+    "id": 5,
+    "word": "Gregarious",
+    "definition": "Fond of company; sociable",
+    "example": "The gregarious boy made friends wherever he went.",
+    "difficulty": "hard",
+    "category": "character traits",
+    "synonyms": ["sociable", "outgoing", "friendly", "convivial"],
+    "antonyms": ["shy", "introverted", "reserved", "solitary"]
+  },
+  {
+    "id": 6,
+    "word": "Haughty",
+    "definition": "Arrogantly superior and disdainful",
+    "example": "The haughty prince refused to speak to the servants.",
+    "difficulty": "hard",
+    "category": "character traits",
+    "synonyms": ["arrogant", "proud", "conceited", "disdainful"],
+    "antonyms": ["humble", "modest", "meek", "respectful"]
+  },
+  {
+    "id": 7,
+    "word": "Immaculate",
+    "definition": "Perfectly clean or tidy; without any flaw",
+    "example": "Her handwriting was immaculate.",
+    "difficulty": "medium",
+    "category": "appearance",
+    "synonyms": ["spotless", "flawless", "pristine", "perfect"],
+    "antonyms": ["dirty", "messy", "flawed", "imperfect"]
+  },
+  {
+    "id": 8,
+    "word": "Jubilant",
+    "definition": "Feeling or expressing great happiness",
+    "example": "The jubilant crowd cheered when their team scored.",
+    "difficulty": "medium",
+    "category": "emotions",
+    "synonyms": ["joyful", "elated", "overjoyed", "triumphant"],
+    "antonyms": ["miserable", "dejected", "sorrowful", "gloomy"]
+  },
+  {
+    "id": 9,
+    "word": "Lament",
+    "definition": "To express grief or sorrow",
+    "example": "She lamented the loss of her favourite book.",
+    "difficulty": "medium",
+    "category": "emotions",
+    "synonyms": ["mourn", "grieve", "weep", "bemoan"],
+    "antonyms": ["celebrate", "rejoice", "cheer", "delight"]
+  },
+  {
+    "id": 10,
+    "word": "Meticulous",
+    "definition": "Very careful and precise about details",
+    "example": "The meticulous student checked every answer twice.",
+    "difficulty": "hard",
+    "category": "character traits",
+    "synonyms": ["precise", "thorough", "careful", "painstaking"],
+    "antonyms": ["careless", "sloppy", "hasty", "negligent"]
+  },
+  {
+    "id": 11,
+    "word": "Notorious",
+    "definition": "Famous for something bad",
+    "example": "The notorious villain was feared across the land.",
+    "difficulty": "medium",
+    "category": "reputation",
+    "synonyms": ["infamous", "disreputable", "scandalous"],
+    "antonyms": ["reputable", "honourable", "respected"]
+  },
+  {
+    "id": 12,
+    "word": "Obscure",
+    "definition": "Not well known; difficult to understand",
+    "example": "The obscure word puzzled even the teacher.",
+    "difficulty": "medium",
+    "category": "knowledge",
+    "synonyms": ["unknown", "vague", "unclear", "hidden"],
+    "antonyms": ["famous", "clear", "obvious", "well-known"]
+  },
+  {
+    "id": 13,
+    "word": "Persevere",
+    "definition": "To keep going despite difficulty",
+    "example": "She persevered with her maths revision even when it was hard.",
+    "difficulty": "easy",
+    "category": "character traits",
+    "synonyms": ["persist", "endure", "continue", "press on"],
+    "antonyms": ["quit", "give up", "surrender", "abandon"]
+  },
+  {
+    "id": 14,
+    "word": "Quaint",
+    "definition": "Attractively unusual or old-fashioned",
+    "example": "They stayed in a quaint little cottage in the countryside.",
+    "difficulty": "medium",
+    "category": "appearance",
+    "synonyms": ["charming", "picturesque", "curious"],
+    "antonyms": ["modern", "ordinary", "plain"]
+  },
+  {
+    "id": 15,
+    "word": "Resilient",
+    "definition": "Able to recover quickly from difficulties",
+    "example": "The resilient girl bounced back after her setback.",
+    "difficulty": "medium",
+    "category": "character traits",
+    "synonyms": ["tough", "strong", "adaptable", "hardy"],
+    "antonyms": ["fragile", "weak", "vulnerable", "delicate"]
+  },
+  {
+    "id": 16,
+    "word": "Serene",
+    "definition": "Calm, peaceful and untroubled",
+    "example": "The lake looked serene in the early morning light.",
+    "difficulty": "easy",
+    "category": "emotions",
+    "synonyms": ["calm", "peaceful", "tranquil", "placid"],
+    "antonyms": ["agitated", "troubled", "stormy", "anxious"]
+  },
+  {
+    "id": 17,
+    "word": "Tenacious",
+    "definition": "Holding firmly to something; not giving up",
+    "example": "The tenacious athlete trained every day for a year.",
+    "difficulty": "hard",
+    "category": "character traits",
+    "synonyms": ["persistent", "determined", "stubborn", "resolute"],
+    "antonyms": ["weak", "yielding", "irresolute"]
+  },
+  {
+    "id": 18,
+    "word": "Unanimous",
+    "definition": "Fully agreed by everyone",
+    "example": "The class was unanimous in choosing pizza for lunch.",
+    "difficulty": "medium",
+    "category": "agreement",
+    "synonyms": ["united", "agreed", "undivided"],
+    "antonyms": ["divided", "split", "disagreed"]
+  },
+  {
+    "id": 19,
+    "word": "Vivid",
+    "definition": "Producing powerful, clear images in the mind",
+    "example": "She had a vivid dream about flying over mountains.",
+    "difficulty": "easy",
+    "category": "description",
+    "synonyms": ["bright", "striking", "clear", "lifelike"],
+    "antonyms": ["dull", "faint", "vague", "dim"]
+  },
+  {
+    "id": 20,
+    "word": "Wary",
+    "definition": "Feeling cautious about possible dangers",
+    "example": "He was wary of the strange dog at the gate.",
+    "difficulty": "easy",
+    "category": "emotions",
+    "synonyms": ["cautious", "careful", "alert", "watchful"],
+    "antonyms": ["careless", "reckless", "trusting", "naive"]
+  }
+]
