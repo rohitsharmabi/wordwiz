@@ -11,7 +11,7 @@ export default function WordListScreen({ words, progress, updateProgress }: Prop
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState('all')
 
-  const filters = ['all', 'mastered', 'tricky', 'review', ...new Set(words.map(w => w.category))]
+  const filters = ['All', 'Mastered', 'Tricky', 'Review', ...new Set(words.map(w => w.category))]
 
   const filtered = words.filter(w => {
     const matchSearch =
