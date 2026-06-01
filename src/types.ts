@@ -5,7 +5,7 @@ export type Word = {
   word: string;
   definition: string;
   example: string;
-  difficulty: Difficulty;
+  difficulty: 'easy' | 'medium' | 'hard';
   category: string;
   synonyms: string[];
   antonyms: string[];
