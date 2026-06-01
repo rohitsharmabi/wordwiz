@@ -396,16 +396,25 @@ body {
   line-height: 1.8;
 }
 
-/* ── FLASHCARD SETUP ── */
-.setup-screen h2 { font-size: 1.2rem; font-weight: 900; color: #333; margin-bottom: 6px; }
-.setup-screen p  { font-size: 0.88rem; font-weight: 600; color: #888; margin-bottom: 22px; line-height: 1.5; }
-
+/* ══════════════════════════════════════════
+   FLASHCARD — SETUP
+══════════════════════════════════════════ */
+.setup-screen { padding: 4px 0; }
+.setup-screen h2 {
+  font-size: 1.2rem; font-weight: 900; color: #333; margin-bottom: 6px;
+}
+.setup-screen p {
+  font-size: 0.88rem; font-weight: 600; color: #888;
+  margin-bottom: 22px; line-height: 1.5;
+}
 .setup-label {
   font-size: 0.72rem; font-weight: 900; color: #9999bb;
   text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px;
 }
-
-.option-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 22px; }
+.option-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 10px; margin-bottom: 22px;
+}
 .option-tile {
   background: white; border: 2.5px solid #e8e8f5; border-radius: 18px;
   padding: 16px 10px; text-align: center; cursor: pointer;
@@ -413,14 +422,20 @@ body {
   box-shadow: 0 3px 10px rgba(102,126,234,0.07);
 }
 .option-tile:active { transform: scale(0.95); }
-.option-tile.selected { border-color: #667eea; background: #eef0ff; box-shadow: 0 4px 16px rgba(102,126,234,0.2); }
+.option-tile.selected {
+  border-color: #667eea; background: #eef0ff;
+  box-shadow: 0 4px 16px rgba(102,126,234,0.2);
+}
 .option-tile .tile-icon { font-size: 1.6rem; margin-bottom: 6px; }
 .option-tile .tile-val  { font-size: 1.3rem; font-weight: 900; color: #333; }
 .option-tile .tile-lbl  { font-size: 0.72rem; font-weight: 700; color: #aaa; margin-top: 2px; }
-.option-tile.selected .tile-val { color: #667eea; }
+.option-tile.selected .tile-val,
 .option-tile.selected .tile-lbl { color: #667eea; }
 
-.diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 26px; }
+.diff-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 8px; margin-bottom: 26px;
+}
 .diff-tile {
   background: white; border: 2.5px solid #e8e8f5; border-radius: 16px;
   padding: 12px 6px; text-align: center; cursor: pointer;
@@ -441,79 +456,280 @@ body {
 
 .start-btn-wrap { margin-top: 4px; }
 
-/* ── FLASHCARD ── */
-.fc-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+/* ══════════════════════════════════════════
+   FLASHCARD — HEADER & META CHIPS
+══════════════════════════════════════════ */
+.fc-header {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 14px;
+}
 .fc-header h2 { font-size: 1.1rem; font-weight: 900; color: #333; }
-.fc-counter { font-size: 0.78rem; font-weight: 800; color: #667eea; background: #eef0ff; padding: 4px 12px; border-radius: 20px; }
-
-.fc-meta-row { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
-.fc-meta-chip { font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 20px; }
+.fc-counter {
+  font-size: 0.78rem; font-weight: 800; color: #667eea;
+  background: #eef0ff; padding: 4px 12px; border-radius: 20px;
+}
+.fc-meta-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.fc-meta-chip {
+  font-size: 0.7rem; font-weight: 800;
+  padding: 4px 12px; border-radius: 20px;
+}
 .fc-meta-chip.diff-easy   { background: #e8fff3; color: #1a7a4a; }
 .fc-meta-chip.diff-medium { background: #fff8e1; color: #b8860b; }
 .fc-meta-chip.diff-hard   { background: #fff0f2; color: #c0392b; }
 .fc-meta-chip.diff-mixed  { background: #eef0ff; color: #667eea; }
 .fc-meta-chip.count       { background: #f0f0f8; color: #667eea; }
+.fc-chip-tricky           { background: #fff0f2; color: #c0392b; }
+.fc-chip-mastered         { background: #e8fff3; color: #1a7a4a; }
 
-.flashcard-wrap  { perspective: 1200px; height: 340px; margin-bottom: 18px; cursor: pointer; }
-.flashcard-inner {
-  position: relative; width: 100%; height: 100%;
-  transition: transform 0.6s cubic-bezier(0.4,0.2,0.2,1);
-  transform-style: preserve-3d;
+/* ══════════════════════════════════════════
+   FLASHCARD — STEP 1: UNSCRAMBLE
+══════════════════════════════════════════ */
+.fc-unscramble-card {
+  background: white;
+  border-radius: 26px;
+  padding: 20px 18px 16px;
+  box-shadow: 0 4px 20px rgba(102,126,234,0.1);
+  border: 1.5px solid #eef0ff;
+  margin-bottom: 14px;
 }
-.flashcard-inner.flipped { transform: rotateY(180deg); }
-.card-face {
-  position: absolute; width: 100%; height: 100%;
-  backface-visibility: hidden; border-radius: 26px;
-  display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
-  padding: 24px; text-align: center;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+
+/* attempt pips */
+.fc-attempt-row {
+  display: flex; align-items: center; gap: 7px; margin-bottom: 14px;
 }
-.card-front { background: linear-gradient(145deg, #4facfe 0%, #00f2fe 100%); color: white; }
-.card-back  {
-  background: linear-gradient(145deg, #43e97b 0%, #38f9d7 100%);
-  color: #1a1a1a; transform: rotateY(180deg);
-  justify-content: flex-start; padding-top: 26px; overflow-y: auto;
+.fc-pip {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #e0e0f0; transition: background 0.25s;
 }
-.card-front .word       { font-size: 2.4rem; font-weight: 900; margin-bottom: 6px; text-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-.card-front .diff-badge { font-size: 0.68rem; font-weight: 800; background: rgba(255,255,255,0.25); padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
-.card-front .speak-btn  { background: rgba(255,255,255,0.25); border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 1.3rem; cursor: pointer; margin-bottom: 12px; transition: transform 0.15s; }
-.card-front .speak-btn:active { transform: scale(0.9); }
-.card-front .tap-hint   { font-size: 0.75rem; opacity: 0.75; font-weight: 600; }
-.card-back .def         { font-size: 0.98rem; font-weight: 800; margin-bottom: 8px; width: 100%; line-height: 1.4; }
-.card-back .example     { font-size: 0.82rem; font-style: italic; color: #2a5a3a; margin-bottom: 12px; width: 100%; line-height: 1.4; }
-
-.syn-ant-label { font-size: 0.62rem; font-weight: 900; color: #2a5a3a; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 8px; margin-bottom: 5px; width: 100%; text-align: left; }
-.syn-ant-row   { display: flex; flex-wrap: wrap; gap: 5px; width: 100%; margin-bottom: 4px; }
-.syn-chip      { font-size: 0.68rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
-.syn-chip.syn  { background: rgba(255,255,255,0.5); color: #1a5a3a; }
-.syn-chip.ant  { background: rgba(255,100,100,0.15); color: #8b0000; }
-
-.fc-controls { display: flex; gap: 8px; margin-bottom: 14px; }
-.fc-btn {
-  flex: 1; padding: 13px 4px; border: none; border-radius: 16px;
-  font-size: 0.78rem; font-weight: 800; cursor: pointer;
-  transition: transform 0.12s, box-shadow 0.2s;
-  font-family: 'Nunito', sans-serif; line-height: 1.2;
+.fc-pip.on { background: #667eea; }
+.fc-attempt-label {
+  font-size: 0.75rem; font-weight: 800; color: #667eea; margin-left: 4px;
 }
-.fc-btn:active { transform: scale(0.95); }
-.fc-btn.prev   { background: #eef0ff; color: #667eea; }
-.fc-btn.next   { background: linear-gradient(90deg, #667eea, #764ba2); color: white; box-shadow: 0 4px 14px rgba(102,126,234,0.35); }
-.fc-btn.mark   { background: linear-gradient(90deg, #f6d365, #fda085); color: white; box-shadow: 0 4px 14px rgba(253,160,133,0.35); }
-.fc-btn.tricky { background: linear-gradient(90deg, #f5576c, #f093fb); color: white; box-shadow: 0 4px 14px rgba(245,87,108,0.3); }
 
-.fc-progress-wrap  { margin-bottom: 4px; }
-.fc-progress-label { display: flex; justify-content: space-between; font-size: 0.7rem; font-weight: 700; color: #aaa; margin-bottom: 6px; }
-.fc-progress       { height: 8px; background: #e8e8f5; border-radius: 10px; overflow: hidden; }
-.fc-progress-fill  { height: 100%; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 10px; transition: width 0.4s cubic-bezier(0.4,0,0.2,1); }
+/* clue box */
+.fc-clue-box {
+  background: #f4f6ff; border-radius: 18px;
+  padding: 13px 15px; margin-bottom: 16px;
+}
+.fc-clue-row {
+  display: flex; gap: 10px; align-items: flex-start; padding: 4px 0;
+}
+.fc-clue-lbl {
+  font-size: 0.6rem; font-weight: 900; text-transform: uppercase;
+  letter-spacing: 1px; color: #9999cc; min-width: 62px; padding-top: 2px;
+}
+.fc-clue-txt {
+  font-size: 0.88rem; font-weight: 700; color: #333; line-height: 1.4;
+}
+.fc-clue-chip {
+  background: #e8e8ff; border-radius: 20px;
+  padding: 2px 12px; font-size: 0.72rem; font-weight: 800; color: #667eea;
+}
+.fc-clue-divider { height: 1px; background: #e4e6f8; margin: 5px 0; }
 
-/* ── shared big-btn (used in flashcard done banner) ── */
-.big-btn {
-  width: 100%; padding: 16px; border: none; border-radius: 20px;
-  font-size: 1rem; font-weight: 800; cursor: pointer;
-  margin-bottom: 10px; transition: transform 0.12s, box-shadow 0.2s;
+/* answer slots */
+.fc-slots-row {
+  display: flex; flex-wrap: wrap;
+  gap: 6px; justify-content: center;
+  margin-bottom: 14px; min-height: 50px;
+}
+.fc-slot {
+  width: 34px; height: 42px;
+  border-bottom: 3px solid #c8caee;
+  border-radius: 8px 8px 0 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.05rem; font-weight: 900; color: #667eea;
+  background: transparent; cursor: pointer;
+  transition: all 0.15s;
+}
+.fc-slot.filled       { background: #eef0ff; border-bottom-color: #667eea; }
+.fc-slot.hint-locked  { background: #e4f0ff; border-bottom-color: #4facfe; color: #4facfe; cursor: default; }
+.fc-slot.slot-correct { background: #e8fff3; border-bottom-color: #43e97b; color: #1a7a4a; }
+.fc-slot.slot-wrong   { background: #fff0f2; border-bottom-color: #f5576c; color: #c0392b; }
+
+/* tile bank */
+.fc-tile-bank {
+  display: flex; flex-wrap: wrap;
+  gap: 8px; justify-content: center; margin-bottom: 14px;
+}
+.fc-tile {
+  width: 40px; height: 44px;
+  background: linear-gradient(145deg, #667eea, #764ba2);
+  color: white; border: none; border-radius: 12px;
+  font-size: 1rem; font-weight: 900; cursor: pointer;
   font-family: 'Nunito', sans-serif;
+  box-shadow: 0 4px 10px rgba(102,126,234,0.3);
+  transition: transform 0.12s, opacity 0.15s, box-shadow 0.15s;
 }
-.big-btn:active  { transform: scale(0.96); }
-.big-btn.primary   { background: linear-gradient(90deg, #667eea, #764ba2); color: white; box-shadow: 0 6px 20px rgba(102,126,234,0.35); }
-.big-btn.secondary { background: #eef0ff; color: #667eea; }
+.fc-tile:active { transform: scale(0.88); }
+.fc-tile.used   { opacity: 0.2; transform: scale(0.85); box-shadow: none; pointer-events: none; }
+
+/* action row */
+.fc-action-row {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px; margin-bottom: 10px;
+}
+.fc-action-btn {
+  padding: 10px 4px; border: 2px solid #e8e8f5;
+  border-radius: 14px; background: white;
+  font-size: 0.72rem; font-weight: 800; cursor: pointer;
+  font-family: 'Nunito', sans-serif; transition: all 0.15s;
+}
+.fc-action-btn:active   { transform: scale(0.93); }
+.fc-action-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.fc-action-btn.hint  { color: #f6a623; border-color: #fde8bb; background: #fffbf0; }
+.fc-action-btn.clear { color: #667eea; border-color: #d8dcff; background: #f4f6ff; }
+.fc-action-btn.check { color: #1a7a4a; border-color: #b2f0cc; background: #e8fff3; }
+
+/* give up */
+.fc-giveup-btn {
+  display: block; width: 100%; padding: 8px;
+  background: none; border: none;
+  font-size: 0.78rem; font-weight: 800; color: #bbb;
+  cursor: pointer; font-family: 'Nunito', sans-serif;
+  text-decoration: underline; transition: color 0.15s;
+}
+.fc-giveup-btn:active { color: #667eea; }
+
+/* ══════════════════════════════════════════
+   FLASHCARD — STEP 2: REVEAL + RATE
+══════════════════════════════════════════ */
+.fc-reveal-card {
+  border-radius: 26px;
+  padding: 26px 22px 22px;
+  margin-bottom: 14px;
+  text-align: center;
+  box-shadow: 0 6px 28px rgba(102,126,234,0.18);
+  overflow: hidden;
+}
+
+/* "shown" state — soft lavender */
+.fc-reveal-card.shown {
+  background: #ede8ff;
+  border: 1.5px solid #d4caff;
+}
+
+/* "won" state — slightly warmer lavender tint */
+.fc-reveal-card.won {
+  background: #e8eeff;
+  border: 1.5px solid #c8d4ff;
+}
+
+/* inner wrapper — used when fc-reveal-inner is present */
+.fc-reveal-inner {
+  padding: 0;
+}
+
+.fc-reveal-badge {
+  font-size: 0.68rem; font-weight: 900;
+  text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px;
+}
+.fc-reveal-card.shown .fc-reveal-badge { color: #7c5cbf; }
+.fc-reveal-card.won   .fc-reveal-badge { color: #4a6abf; }
+
+/* word */
+.fc-reveal-word {
+  font-size: 2.4rem; font-weight: 900;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+  animation: fcWordPop 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes fcWordPop {
+  0%   { transform: scale(0.7); opacity: 0; }
+  70%  { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.fc-reveal-def {
+  font-size: 0.93rem; font-weight: 700;
+  color: #3a2d6b; line-height: 1.5; margin-bottom: 8px;
+}
+.fc-reveal-example {
+  font-size: 0.82rem; font-style: italic;
+  color: #6b5fa0; line-height: 1.5; margin-bottom: 14px;
+}
+
+/* hear it button — sits on lavender so needs matching style */
+.fc-speak-btn {
+  background: rgba(255,255,255,0.55);
+  border: 1.5px solid rgba(255,255,255,0.9);
+  border-radius: 30px; padding: 8px 18px;
+  font-size: 0.82rem; font-weight: 800; color: #5a4a9a;
+  cursor: pointer; font-family: 'Nunito', sans-serif;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: transform 0.12s, background 0.15s;
+  margin-bottom: 12px;
+}
+.fc-speak-btn:active { transform: scale(0.94); background: rgba(255,255,255,0.75); }
+
+/* synonyms & antonyms */
+.fc-sa-label {
+  font-size: 0.62rem; font-weight: 900; color: #8878bb;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  margin: 10px 0 6px; text-align: left;
+}
+.syn-ant-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 4px; }
+.syn-chip { font-size: 0.68rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+.syn-chip.syn { background: rgba(255,255,255,0.6); color: #3a2d6b; }
+.syn-chip.ant { background: rgba(184,134,11,0.12); color: #7a5800; }
+
+/* rate section */
+.fc-rate-divider {
+  height: 1px; background: rgba(255,255,255,0.5); margin: 20px 0 14px;
+}
+.fc-rate-label-inline {
+  font-size: 0.72rem; font-weight: 900; color: #8878bb;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  margin-bottom: 12px; text-align: center;
+}
+.fc-rate-buttons { display: flex; gap: 10px; justify-content: center; }
+.fc-rate-btn {
+  flex: 1; padding: 14px 8px;
+  background: rgba(255,255,255,0.5);
+  border: 1.5px solid rgba(255,255,255,0.85);
+  border-radius: 20px; cursor: pointer;
+  font-family: 'Nunito', sans-serif; transition: all 0.18s;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.fc-rate-btn:active          { background: rgba(255,255,255,0.8); transform: scale(0.93); }
+.fc-rate-btn.unknown:active  { border-color: #f5576c; }
+.fc-rate-btn.almost:active   { border-color: #fda085; }
+.fc-rate-btn.known:active    { border-color: #43e97b; }
+.fc-rate-emoji { font-size: 1.8rem; }
+.fc-rate-text  { font-size: 0.72rem; font-weight: 800; color: #5a4a9a; line-height: 1.3; }
+
+/* ══════════════════════════════════════════
+   FLASHCARD — DONE SCREEN
+══════════════════════════════════════════ */
+.fc-done { text-align: center; padding: 48px 12px; }
+.fc-done-emoji {
+  font-size: 4rem; margin-bottom: 16px;
+  animation: fcWordPop 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+.fc-done h2 {
+  font-size: 1.4rem; font-weight: 900; color: #333; margin-bottom: 8px;
+}
+.fc-done p {
+  font-size: 0.9rem; font-weight: 600; color: #888;
+  margin-bottom: 28px; line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════
+   FLASHCARD — PROGRESS BAR
+══════════════════════════════════════════ */
+.fc-progress-wrap { margin-bottom: 4px; }
+.fc-progress-label {
+  display: flex; justify-content: space-between;
+  font-size: 0.7rem; font-weight: 700; color: #aaa; margin-bottom: 6px;
+}
+.fc-progress {
+  height: 8px; background: #e8e8f5;
+  border-radius: 10px; overflow: hidden;
+}
+.fc-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 10px;
+  transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
+}
