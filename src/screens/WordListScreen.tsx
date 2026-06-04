@@ -22,10 +22,10 @@ export default function WordListScreen({ words, progress, updateProgress }: Prop
     const inTricky = progress.trickyIds.includes(w.id)
 
     const matchFilter =
-      filter === 'all' ||
-      (filter === 'mastered' && progress.masteredIds.includes(w.id)) ||
-      (filter === 'tricky' && inTricky) ||
-      (filter === 'review' && inReview) ||
+      filter === 'All' ||
+      (filter === 'Mastered' && progress.masteredIds.includes(w.id)) ||
+      (filter === 'Tricky' && inTricky) ||
+      (filter === 'Review' && inReview) ||
       w.category === filter
 
     return matchSearch && matchFilter

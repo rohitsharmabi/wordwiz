@@ -733,3 +733,439 @@ body {
   border-radius: 10px;
   transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
 }
+
+/* ══════════════════════════════════════════
+   Journey Screen
+══════════════════════════════════════════ */
+.journey-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.journey-hero {
+  background: linear-gradient(135deg, #5b86e5, #36d1dc);
+  color: white;
+  border-radius: 22px;
+  padding: 20px 18px;
+  box-shadow: 0 8px 24px rgba(91, 134, 229, 0.22);
+}
+
+.journey-hero h2 {
+  margin: 6px 0 6px;
+}
+
+.journey-hero p {
+  margin: 0;
+  opacity: 0.95;
+}
+
+.journey-path {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.island-card {
+  background: white;
+  border-radius: 22px;
+  padding: 16px;
+  border: 3px solid transparent;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.island-card:not(.locked) {
+  cursor: pointer;
+}
+
+.island-card:not(.locked):active {
+  transform: scale(0.98);
+}
+
+.island-card.locked {
+  opacity: 0.58;
+}
+
+.island-card.complete {
+  box-shadow: 0 8px 22px rgba(246, 183, 60, 0.18);
+}
+
+.island-card.progress {
+  box-shadow: 0 8px 22px rgba(102, 126, 234, 0.16);
+}
+
+.island-top {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.island-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.island-meta h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.island-meta small {
+  color: #777;
+}
+
+.island-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.island-badge {
+  font-size: 0.78rem;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: 6px 10px;
+}
+
+.island-badge.locked {
+  background: #efefef;
+  color: #777;
+}
+
+.island-badge.unlocked {
+  background: #e8fff3;
+  color: #1d7f4e;
+}
+
+.island-badge.progress {
+  background: #eef0ff;
+  color: #667eea;
+}
+
+.island-badge.complete {
+  background: #fff4d9;
+  color: #c58a00;
+}
+
+.island-count {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #666;
+}
+
+.journey-progress {
+  width: 100%;
+  height: 10px;
+  background: #edf0f7;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.journey-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.locked-text {
+  margin: 10px 0 0;
+  font-size: 0.78rem;
+  color: #888;
+}
+
+/* ══════════════════════════════════════════
+   Journey Play Screen
+══════════════════════════════════════════ */
+.journey-play {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.journey-play-card {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 8px 22px rgba(102, 126, 234, 0.22);
+}
+
+.journey-play-card h2 {
+  margin: 6px 0;
+}
+
+.journey-mini-progress {
+  opacity: 0.9;
+  margin: 0;
+}
+
+.island-mastery-line {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #666;
+}
+
+.mcq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.mcq-btn {
+  width: 100%;
+  border: 2px solid #e6e8f5;
+  background: white;
+  border-radius: 16px;
+  padding: 14px 12px;
+  text-align: left;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #333;
+  cursor: pointer;
+}
+
+.mcq-btn.correct {
+  border-color: #43e97b;
+  background: #ecfff3;
+  color: #18794e;
+}
+
+.mcq-btn.wrong {
+  border-color: #f5576c;
+  background: #fff0f3;
+  color: #b42345;
+}
+
+.journey-summary {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.journey-summary-card {
+  width: 100%;
+  background: white;
+  border-radius: 24px;
+  padding: 22px 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.journey-summary-stats {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 14px 0 18px;
+}
+
+.summary-pill {
+  background: #f2f4ff;
+  color: #4d5fd1;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.helper-text {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.journey-back-link {
+  border: none;
+  background: none;
+  padding: 0;
+  margin-bottom: 12px;
+  color: #667eea;
+  font-size: 0.95rem;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+}
+
+.journey-subtitle {
+  color: #7b8199;
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-top: -8px;
+  margin-bottom: 14px;
+}
+
+.journey-action-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.journey-secondary-btn {
+  width: 100%;
+  padding: 15px 16px;
+  background: white;
+  color: #667eea;
+  border: 2px solid #dfe3ff;
+  border-radius: 18px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+}
+
+.journey-overview-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background: white;
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.journey-overview-stat {
+  text-align: center;
+}
+
+.journey-overview-stat strong {
+  display: block;
+  font-size: 1.2rem;
+  color: #667eea;
+  font-weight: 900;
+}
+
+.journey-overview-stat span {
+  font-size: 0.75rem;
+  color: #888;
+  font-weight: 700;
+}
+
+.journey-island-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.journey-island-card {
+  width: 100%;
+  border: none;
+  background: white;
+  border-radius: 22px;
+  padding: 16px;
+  text-align: left;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.journey-island-card:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(102,126,234,0.14);
+}
+
+.journey-island-card:disabled {
+  cursor: not-allowed;
+  opacity: 0.78;
+}
+
+.journey-island-card.complete {
+  box-shadow: 0 8px 22px rgba(246, 211, 101, 0.2);
+}
+
+.journey-island-card.progress {
+  box-shadow: 0 8px 22px rgba(102,126,234,0.14);
+}
+
+.journey-island-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.journey-island-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.journey-island-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.journey-island-name {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #333;
+}
+
+.journey-island-category {
+  font-size: 0.8rem;
+  color: #8b8fa6;
+  font-weight: 700;
+}
+
+.journey-island-state {
+  font-size: 1.2rem;
+}
+
+.journey-island-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.journey-island-status-text {
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: #666;
+}
+
+.journey-island-count {
+  font-size: 0.84rem;
+  font-weight: 900;
+  color: #667eea;
+}
+
+.journey-island-progress {
+  width: 100%;
+  height: 10px;
+  background: #eceef8;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.journey-island-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.journey-lock-note {
+  margin-top: 10px;
+  font-size: 0.78rem;
+  color: #8a8ea3;
+  line-height: 1.4;
+}

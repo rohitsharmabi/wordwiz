@@ -1,16 +1,17 @@
+// src/App.tsx
 import { useCallback, useEffect, useState } from 'react'
 import TopBar from './components/TopBar'
 import BottomNav from './components/BottomNav'
 import HomeScreen from './screens/HomeScreen'
 import FlashcardScreen from './screens/FlashcardScreen'
 import QuizScreen from './screens/QuizScreen'
-import ChallengeScreen from './screens/ChallengeScreen'
+import JourneyScreen from './screens/JourneyScreen'
 import WordListScreen from './screens/WordListScreen'
 import { BADGES } from './constants/badges'
 import { loadProgress, saveProgress, updateStreak } from './utils/storage'
 import type { Progress, Word } from './types'
 
-type Tab = 'home' | 'flashcard' | 'quiz' | 'challenge' | 'wordlist'
+type Tab = 'home' | 'flashcard' | 'quiz' | 'journey' | 'wordlist'
 
 export default function App() {
   const [words, setWords] = useState<Word[]>([])
@@ -57,10 +58,18 @@ export default function App() {
 
       <main className="screen">
         {tab === 'home' && <HomeScreen words={words} progress={progress} />}
-        {tab === 'flashcard' && <FlashcardScreen words={words} progress={progress} updateProgress={updateProgress} />}
-        {tab === 'quiz' && <QuizScreen words={words} progress={progress} updateProgress={updateProgress} />}
-        {tab === 'challenge' && <ChallengeScreen words={words} progress={progress} updateProgress={updateProgress} />}
-        {tab === 'wordlist' && <WordListScreen words={words} progress={progress} updateProgress={updateProgress} />}
+        {tab === 'flashcard' && (
+          <FlashcardScreen words={words} progress={progress} updateProgress={updateProgress} />
+        )}
+        {tab === 'quiz' && (
+          <QuizScreen words={words} progress={progress} updateProgress={updateProgress} />
+        )}
+        {tab === 'journey' && (
+          <JourneyScreen words={words} progress={progress} updateProgress={updateProgress} />
+        )}
+        {tab === 'wordlist' && (
+          <WordListScreen words={words} progress={progress} updateProgress={updateProgress} />
+        )}
       </main>
 
       <BottomNav tab={tab} setTab={setTab} />

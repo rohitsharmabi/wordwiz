@@ -1,3 +1,4 @@
+// src/utils/storage.ts
 import type { Progress } from '../types'
 
 export function defaultProgress(): Progress {
@@ -10,6 +11,8 @@ export function defaultProgress(): Progress {
     streak: 0,
     lastVisit: null,
     masteredIds: [],
+    journeyLearnedIds: [],
+    completedIslandIds: [],
     trickyIds: [],
     earnedBadges: [],
     reviewList: [],
