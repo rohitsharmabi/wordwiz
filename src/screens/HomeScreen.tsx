@@ -36,22 +36,23 @@ export default function HomeScreen({ words, progress, updateProgress }: Props) {
 
   return (
     <div>
-      {/* Dragon companion */}
-      <div className="dragon-home-section">
-        <div className="dragon-speech-bubble">
-          {progress.streak === 0
-            ? "Wake me up when you study! 😴"
-            : progress.streak >= 7
-              ? `${progress.streak} days strong! You're legendary! 🔥`
-              : `Day ${progress.streak}! Keep it up! 🌟`}
-        </div>
+      {/* Dragon companion — compact horizontal strip */}
+      <div className="dragon-home-section" onClick={handleDragonClick} role="button" aria-label="Open Dragon Shop">
         <Dragon
           dragonState={progress.dragonState}
           mood={mood}
-          size={160}
-          onClick={handleDragonClick}
+          size={80}
         />
-        <div className="dragon-tap-hint">👆 Tap to customise!</div>
+        <div className="dragon-home-info">
+          <div className="dragon-speech-bubble">
+            {progress.streak === 0
+              ? "Wake me up when you study! 😴"
+              : progress.streak >= 7
+                ? `${progress.streak} days strong! You're legendary! 🔥`
+                : `Day ${progress.streak}! Keep it up! 🌟`}
+          </div>
+          <div className="dragon-tap-hint">👆 Tap to customise!</div>
+        </div>
       </div>
 
       {shopOpen && (
