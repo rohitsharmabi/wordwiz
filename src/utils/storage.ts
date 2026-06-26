@@ -3,8 +3,8 @@ import { DEFAULT_DRAGON_UNLOCKED } from '../constants/dragonShop'
 
 export function defaultProgress(): Progress {
   return {
-    stars: 0,
-    coins: 0,
+    stars: 500, // Changed from 0 to 500 to give users a starting point for testing and engagement
+    coins: 500, // Changed from 0 to 500 to give users a starting point for testing and engagement
     mastered: 0,
     quizzesDone: 0,
     perfectQuizzes: 0,
