@@ -485,6 +485,7 @@ export default function FlashcardScreen({ words, progress, updateProgress }: Pro
         masteredIds: newMastered,
         mastered:    newMastered.length,
         stars:       progress.stars + 1,
+        coins:       progress.coins + 2,
       })
       setSessionScore(s => s + 1)
       advance('drop')

@@ -1,8 +1,10 @@
 import type { Progress } from '../types'
+import { DEFAULT_DRAGON_UNLOCKED } from '../constants/dragonShop'
 
 export function defaultProgress(): Progress {
   return {
     stars: 0,
+    coins: 0,
     mastered: 0,
     quizzesDone: 0,
     perfectQuizzes: 0,
@@ -13,6 +15,13 @@ export function defaultProgress(): Progress {
     trickyIds: [],
     earnedBadges: [],
     reviewList: [],
+    dragonState: {
+      colour: 'green',
+      hat: 'none',
+      accessory: 'none',
+      aura: 'none',
+      unlockedIds: [...DEFAULT_DRAGON_UNLOCKED],
+    },
   }
 }
 

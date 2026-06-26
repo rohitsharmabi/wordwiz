@@ -141,9 +141,11 @@ export default function ChallengeScreen({ words, progress, updateProgress }: Pro
               ]
             }
 
+            const coinsEarned = markKnown ? 6 : 3
             updateProgress({
               challengesDone: progress.challengesDone + 1,
               stars: progress.stars + Math.max(1, Math.min(combined, 5)),
+              coins: progress.coins + coinsEarned,
               masteredIds: newMasteredIds,
               mastered: newMasteredIds.length,
               reviewList: newReview,

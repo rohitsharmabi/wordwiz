@@ -56,7 +56,7 @@ export default function App() {
       <TopBar progress={progress} />
 
       <main className="screen">
-        {tab === 'home' && <HomeScreen words={words} progress={progress} />}
+        {tab === 'home' && <HomeScreen words={words} progress={progress} updateProgress={updateProgress} />}
         {tab === 'flashcard' && <FlashcardScreen words={words} progress={progress} updateProgress={updateProgress} />}
         {tab === 'quiz' && <QuizScreen words={words} progress={progress} updateProgress={updateProgress} />}
         {tab === 'challenge' && <ChallengeScreen words={words} progress={progress} updateProgress={updateProgress} />}

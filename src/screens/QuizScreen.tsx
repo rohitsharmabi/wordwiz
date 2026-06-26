@@ -53,8 +53,10 @@ export default function QuizScreen({ words, progress, updateProgress }: Props) {
     if (qIndex + 1 >= questions.length) {
       const stars = score >= 9 ? 3 : score >= 6 ? 2 : 1
       const isPerfect = score === questions.length
+      const coinsEarned = isPerfect ? 15 : stars === 3 ? 10 : stars === 2 ? 6 : 3
       updateProgress({
         stars: progress.stars + stars,
+        coins: progress.coins + coinsEarned,
         quizzesDone: progress.quizzesDone + 1,
         perfectQuizzes: isPerfect
           ? progress.perfectQuizzes + 1
@@ -87,6 +89,7 @@ export default function QuizScreen({ words, progress, updateProgress }: Props) {
       pct >= 50   ? 'Good effort!' :
                     'Keep practising!'
     const stars = score >= 9 ? 3 : score >= 6 ? 2 : 1
+    const coinsEarned = pct === 100 ? 15 : stars === 3 ? 10 : stars === 2 ? 6 : 3
 
     return (
       <div className="quiz-result">
@@ -97,6 +100,7 @@ export default function QuizScreen({ words, progress, updateProgress }: Props) {
         <div className="stars-earned">
           {'⭐'.repeat(stars)}<br />+{stars} stars earned!
         </div>
+        <div className="coins-earned">🪙 +{coinsEarned} coins earned!</div>
         <button className="quiz-next-btn" onClick={restart}>🔄 Try Again</button>
       </div>
     )

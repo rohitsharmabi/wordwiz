@@ -11,6 +11,7 @@ export default function TopBar({ progress }: Props) {
       <div className="top-pills">
         <span className="pill">🔥 {progress.streak}</span>
         <span className="pill">⭐ {progress.stars}</span>
+        <span className="pill pill-coins">🪙 {progress.coins}</span>
       </div>
     </header>
   )
