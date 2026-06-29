@@ -15,13 +15,13 @@ type Props = {
 export default function HomeScreen({ words, progress, updateProgress }: Props) {
   const [shopOpen, setShopOpen] = useState(false)
   const [dragonMood, setDragonMood] = useState<DragonMood>('idle')
+  const [showExtras, setShowExtras] = useState(false)
 
   const wotd = words[new Date().getDate() % words.length]
   const due = progress.reviewList.filter(r => new Date(r.reviewAfter) <= new Date()).length
   const earned = BADGES.filter(b => progress.earnedBadges.includes(b.id))
   const locked = BADGES.filter(b => !progress.earnedBadges.includes(b.id))
 
-  // Dragon mood logic
   const mood: DragonMood = progress.streak === 0
     ? 'sleepy'
     : dragonMood !== 'idle'
@@ -70,9 +70,36 @@ export default function HomeScreen({ words, progress, updateProgress }: Props) {
         <h2>{wotd.word}</h2>
         <p>{wotd.definition}</p>
         <div className="example">"{wotd.example}"</div>
-        <button className="small-btn" onClick={() => speak(`${wotd.word}. ${wotd.definition}`)}>
-          🔊 Hear
-        </button>
+
+        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 12 }}>
+          <button
+            className="small-btn"
+            onClick={() => speak(`${wotd.word}. ${wotd.definition}. For example: ${wotd.example}`)}
+          >
+            🔊 Hear
+          </button>
+          <button
+            className="small-btn"
+            onClick={() => setShowExtras(v => !v)}
+          >
+            {showExtras ? 'Hide synonyms & antonyms' : 'Show synonyms & antonyms'}
+          </button>
+        </div>
+
+        {showExtras && (
+          <div style={{ marginTop: 14 }}>
+            {wotd.synonyms?.length > 0 && (
+              <div style={{ marginBottom: 10 }}>
+                <strong>Synonyms:</strong> {wotd.synonyms.join(', ')}
+              </div>
+            )}
+            {wotd.antonyms?.length > 0 && (
+              <div>
+                <strong>Antonyms:</strong> {wotd.antonyms.join(', ')}
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       <div className="stats-row">

@@ -1,3 +1,4 @@
+// src/utils/storage.ts
 import type { Progress } from '../types'
 import { DEFAULT_DRAGON_UNLOCKED } from '../constants/dragonShop'
 
@@ -12,6 +13,8 @@ export function defaultProgress(): Progress {
     streak: 0,
     lastVisit: null,
     masteredIds: [],
+    journeyLearnedIds: [],
+    completedIslandIds: [],
     trickyIds: [],
     earnedBadges: [],
     reviewList: [],
