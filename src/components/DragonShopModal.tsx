@@ -66,6 +66,14 @@ export default function DragonShopModal({ progress, updateProgress, onClose }: P
         <div className="shop-header">
           <div className="shop-title">🐉 Dragon Shop</div>
           <div className="shop-coins">🪙 {coins} coins</div>
+          <button
+            className="shop-close-btn"
+            style={{ background: '#fff3cd', color: '#856404', fontSize: '0.7rem', width: 'auto', borderRadius: 12, padding: '4px 8px' }}
+            onClick={() => updateProgress({ coins: coins + 500 })}
+            title="Dev: Add 500 coins"
+          >
+            +500🪙
+          </button>
           <button className="shop-close-btn" onClick={onClose}>✕</button>
         </div>
 
