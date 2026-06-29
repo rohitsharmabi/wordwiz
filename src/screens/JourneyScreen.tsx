@@ -31,6 +31,8 @@ export default function JourneyScreen({ words, progress, updateProgress }: Props
       const mastered = masteredWords.length
       const pct = total ? mastered / total : 0
 
+      const starUnlocked = progress.starUnlockedIslandIds?.includes(island.id)
+
       let state: IslandState = 'locked'
 
       if (index === 0) {
@@ -41,7 +43,7 @@ export default function JourneyScreen({ words, progress, updateProgress }: Props
         const prevMastered = getIslandMastered(prevWords, progress.masteredIds)
         const prevPct = prevWords.length ? prevMastered.length / prevWords.length : 0
 
-        if (prevPct >= 0.4) {
+        if (prevPct >= 0.4 || starUnlocked) {
           state = pct >= 0.8 ? 'complete' : pct > 0 ? 'progress' : 'unlocked'
         } else {
           state = 'locked'
@@ -193,8 +195,29 @@ export default function JourneyScreen({ words, progress, updateProgress }: Props
 
             {island.state === 'locked' && index > 0 && (
               <div className="journey-lock-note">
-                Reach 40% in the previous island to unlock this one.
+                Reach 40% in the previous island to unlock, or spend ⭐ stars.
               </div>
+            )}
+
+            {island.state === 'locked' && index > 0 && (
+              <button
+                className="journey-star-unlock-btn"
+                onClick={e => {
+                  e.stopPropagation()
+                  const cost = 25
+                  if (progress.stars < cost) return
+                  updateProgress({
+                    stars: progress.stars - cost,
+                    starUnlockedIslandIds: [
+                      ...(progress.starUnlockedIslandIds ?? []),
+                      island.id,
+                    ],
+                  })
+                }}
+                disabled={progress.stars < 25}
+              >
+                {progress.stars >= 25 ? '🔓 Unlock for ⭐ 25 stars' : `Need ⭐ 25 stars (you have ${progress.stars})`}
+              </button>
             )}
           </button>
         ))}

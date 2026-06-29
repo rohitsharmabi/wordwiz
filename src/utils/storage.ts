@@ -15,6 +15,7 @@ export function defaultProgress(): Progress {
     masteredIds: [],
     journeyLearnedIds: [],
     completedIslandIds: [],
+    starUnlockedIslandIds: [],
     trickyIds: [],
     earnedBadges: [],
     reviewList: [],

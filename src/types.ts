@@ -44,6 +44,7 @@ export type Progress = {
   reviewList: ReviewItem[]
   journeyLearnedIds: number[]
   completedIslandIds: string[]
+  starUnlockedIslandIds: string[]
   dragonState: DragonState
 }
 
